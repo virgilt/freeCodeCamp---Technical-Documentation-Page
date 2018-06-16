@@ -5,12 +5,36 @@
     <title></title>
   </head>
   <body>
+
+    <nav id="navbar">
+      <header>
+        HTML Documentation
+      </header>
+      <ul>
+        <a class="nav-link" href="#Introduction" rel="internal">
+          <li>Introduction</li>
+        </a>
+        <a class="nav-link" href="#Anatomy_of_an_HTML_element" rel="internal">
+          <li>Anatomy of an HTML element</li>
+        </a>
+        <a class="nav-link" href="#Attributes" rel="internal">
+          <li>Attributes</li>
+        </a>
+        <a class="nav-link" href="#Anatomy_of_an_HTML_document" rel="internal">
+          <li>Anatomy of an HTML document</li>
+        </a>
+        <a class="nav-link" href="#Entity_references" rel="internal">
+          <li>Entity references</li>
+        </a>
+      </ul>
+    </nav>
+
     <main id="main-doc">
-      <section id="What_is_HTML?" class="main-section">
+      <section id="Introduction" class="main-section">
 
         <!-- What is HTML -->
         <header>
-          What is HTML?
+          Introduction
         </header>
         <p>
           HTML (Hypertext Markup Language) is not a programming language;
@@ -22,12 +46,16 @@
           another page on the web, italicize words, and so on.
           For example, take the following line of content:
         </p>
-        <code>My cat is very grumpy</code>
+        <code>
+          My cat is very grumpy
+        </code>
         <p>
           If we wanted the line to stand by itself, we could specify that it is
-          a paragraph by enclosing it in a paragraph  (<p>) element:
+          a paragraph by enclosing it in a paragraph  (<span><</span>p<span>></span>) element:
         </p>
-        <code><p>My cat is very grumpy</p></code>
+        <code>
+          <p><span><</span>p<span>></span>My cat is very grumpy<span><</span>/p<span>></span></p>
+        </code>
       </section>
 
       <section id="Anatomy_of_an_HTML_element" class="main-section">
@@ -57,10 +85,12 @@
         <p>
           You can put elements inside other elements too — this is called nesting.
           If we wanted to state that our cat is very grumpy, we could wrap
-          the word "very" in a <strong> element, which means that the
+          the word "very" in a <span><</span>strong<span>></span> element, which means that the
           word is to be strongly emphasized:
         </p>
-        <code><p>My cat is <strong>very</strong> grumpy.</p></code>
+        <code>
+          <span><</span>p<span>></span>My cat is <span><</span>strong<span>></span>very<span><</span>/strong<span>></span> grumpy.</p>
+        </code>
         <p>
           You do however need to make sure that your elements are properly
           nested: in the example above, we opened the p element
@@ -68,7 +98,9 @@
           close the strong element first, then the p.
           The following is incorrect:
         </p>
-        <code><p>My cat is <strong>very grumpy.</p></strong></code>
+        <code>
+          <span><</span>p<span>></span>My cat is <span><</span>strong<span>></span>very grumpy.<span><</span>/p<span>></span><span><</span>/strong<span>></span>
+        </code>
         <p>
           The elements have to open and close correctly, so they are clearly
           inside or outside one another. If they overlap like above, then your
@@ -83,32 +115,36 @@
           They are block-level elements and inline elements.
         </p>
         <ul>
-          <li>Block-level elements form a visible block on a page — they will
+          <li>
+            Block-level elements form a visible block on a page — they will
             appear on a new line from whatever content went before it, and any
             content that goes after it will also appear on a new line.
             Block-level elements tend to be structural elements on the page
             that represent, for example, paragraphs, lists, navigation menus,
             footers, etc. A block-level element wouldn't be nested inside an
-            inline element, but it might be nested inside another block-level element.</li>
-          <li>Inline elements are those that are contained within block-level
+            inline element, but it might be nested inside another block-level element.
+          </li>
+          <li>
+            Inline elements are those that are contained within block-level
             elements and surround only small parts of the document’s content,
             not entire paragraphs and groupings of content. An inline element
             will not cause a new line to appear in the document; they would
-            normally appear inside a paragraph of text, for example an <a>
-              element (hyperlink) or emphasis elements such as <em> or <strong>.</li>
+            normally appear inside a paragraph of text, for example an <span><</span>a<span>></span>
+              element (hyperlink) or emphasis elements such as <span><</span>em<span>></span> or <span><</span>strong<span>></span>.
+          </li>
         </ul>
         <p>
           Take the following example:
         </p>
         <code>
-          <em>first</em><em>second</em><em>third</em>
+          <span><</span>em<span>></span>first<span><</span>/em<span>></span><span><</span>em<span>></span>second<span><</span>/em<span>></span><span><</span>em<span>></span>third<span><</span>/em<span>></span>
 
-          <p>fourth</p><p>fifth</p><p>sixth</p>
+          <span><</span>p<span>></span>fourth<span><</span>/p<span>></span><span><</span>p<span>></span>fifth<span><</span>/p<span>></span><span><</span>p<span>></span>sixth<span><</span>/p<span>></span>
         </code>
         <p>
-          <em> is an inline element, so as you can see below, the first three
+          <span><</span>em<span>></span> is an inline element, so as you can see below, the first three
             elements sit on the same line as one another with no space in between.
-            On the other hand, <p> is a block-level element, so each element
+            On the other hand, <span><</span>p<span>></span> is a block-level element, so each element
               appears on a new line, with space above and below each (the spacing
               is due to default CSS styling that the browser applies to paragraphs).
         </p>
@@ -117,11 +153,11 @@
         <p>
           Not all elements follow the above pattern of opening tag, content, closing tag.
           Some elements consist only of a single tag, which is usually used to insert/embed
-          something in the document at the place it is included. For example, the <img> element
+          something in the document at the place it is included. For example, the <span><</span>img<span>></span> element
           embeds an image file onto a page in the position it is included in:
         </p>
         <code>
-          <img src="https://raw.githubusercontent.com/mdn/beginner-html-site/gh-pages/images/firefox-icon.png">
+          <span><</span>img src="https://raw.githubusercontent.com/mdn/beginner-html-site/gh-pages/images/firefox-icon.png"<span>></span>
         </code>
       </section>
 
@@ -144,7 +180,7 @@
           <li>An attribute value, with opening and closing quote marks wrapped around it.</li>
         </ol>
         <p>
-          Another example of an element is <a> — this stands for "anchor" and will make the piece of
+          Another example of an element is <span><</span>a<span>></span> — this stands for "anchor" and will make the piece of
           text it wraps around into a hyperlink. This can take a number of attributes, but several are as follows:
         </p>
         <ul>
@@ -164,16 +200,16 @@
           input elements if you want them to be disabled (greyed out) so the user can't enter any data in them.
         </p>
         <code>
-          <input type="text" disabled="disabled">
+          <span><</span>input type="text" disabled="disabled"<span>></span>
         </code>
         <p>
           As shorthand, it is perfectly allowable to write this as follows (we've also included a non-disabled form
           input element for reference, to give you more of an idea what is going on):
         </p>
         <code>
-          <input type="text" disabled>
+          <span><</span>input type="text" disabled<span>></span>
 
-          <input type="text">
+          <span><</span>input type="text"<span>></span>
         </code>
 
         <h2>Omitting quotes around attribute values</h2>
@@ -184,13 +220,13 @@
           we could write a basic version with only the href attribute, like this:
         </p>
         <code>
-          <a href=https://www.mozilla.org/>favorite website</a>
+          <span><</span>a href=https://www.mozilla.org/<span>></span>favorite website<span><</span>/a<span>></span>
         </code>
         <p>
           However, as soon as we add the title attribute in this style, things will go wrong:
         </p>
         <code>
-          <a href=https://www.mozilla.org/ title=The Mozilla homepage>favorite website</a>
+          <span><</span>a href=https://www.mozilla.org/ title=The Mozilla homepage<span>></span>favorite website<span><</span>/a<span>></span>
         </code>
         <p>
           At this point the browser will misinterpret your markup, thinking that the title attribute is
@@ -206,21 +242,21 @@
           and you can feel free to choose which one you prefer. Both the following lines are equivalent:
         </p>
         <code>
-          <a href="http://www.example.com">A link to my example.</a>
+          <span><</span>a href="http://www.example.com"<span>></span>A link to my example.<span><</span>/a<span>></span>
 
-          <a href='http://www.example.com'>A link to my example.</a>
+          <span><</span>a href='http://www.example.com'<span>></span>A link to my example.<span><</span>/a<span>></span>
         </code>
         <p>
           You should however make sure you don't mix them together. The following will go wrong!
         </p>
         <code>
-          <span><</span>a href="http://www.example.com'>A link to my example.</a>
+          <span><</span>a href="http://www.example.com'<span>></span>A link to my example.<span><</span>/a<span>></span>
         </code>
         <p>
           If you've used one type of quote in your HTML, you can include the other type of quote without causing any problems:
         </p>
         <code>
-          <a href="http://www.example.com" title="Isn't this fun?">A link to my example.</a>
+          <span><</span>a href="http://www.example.com" title="Isn't this fun?"<span>></span>A link to my example.<span><</span>/a<span>></span>
         </code>
         <p>
           However if you want to include a quote within the quotes where both the quotes
@@ -238,60 +274,60 @@
           Now we'll look at how individual elements are combined to form an entire HTML page:
         </p>
         <code>
-          <!DOCTYPE html>
-          <html>
-            <head>
-              <meta charset="utf-8">
-              <title>My test page</title>
-            </head>
-            <body>
-              <p>This is my page</p>
-            </body>
-          </html>
+          <p><span><</span>!DOCTYPE html<span>></span></p>
+          <p><span><</span>html<span>></span></p>
+            <p><span><</span>head<span>></span></p>
+              <p><span><</span>meta charset="utf-8"<span>></span></p>
+              <p><span><</span>title<span>></span>My test page<span><</span>/title<span>></span></p>
+            <p><span><</span>/head<span>></span></p>
+            <p><span><</span>body<span>></span></p>
+              <p><span><</span>p<span>></span>This is my page<span><</span>/p<span>></span></p>
+            <p><span><</span>/body<span>></span></p>
+          <p><span><</span>/html<span>></span></p>
         </code>
           <p>
             Here we have:
           </p>
           <ol>
-            <li><!DOCTYPE html>: The doctype. In the mists of time, when HTML was young (about 1991/2),
+            <li><span><</span>!DOCTYPE html<span>></span>: The doctype. In the mists of time, when HTML was young (about 1991/2),
               doctypes were meant to act as links to a set of rules that the HTML page had to follow to be
               considered good HTML, which could mean automatic error checking and other useful things. They used to look something like this:
               <code>
-                <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-                "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+                <span><</span>!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+                "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"<span>></span>
               </code>
               However, these days no one really cares about them, and they are really just a historical artifact
               that needs to be included for everything to work right. <!DOCTYPE html> is the shortest string of
               characters that counts as a valid doctype; that's all you really need to know.
             </li>
             <li>
-              <html></html>: The <html> element. This element wraps all the content on the entire page, and is sometimes known as the root element.
+              <span><</span>html<span>></span><span><</span>/html<span>></span>: The <span><</span>html<span>></span> element. This element wraps all the content on the entire page, and is sometimes known as the root element.
             </li>
             <li>
-              <head></head>: The <head> element. This element acts as a container for all the stuff you want to
+              <span><</span>head<span>></span><span><</span>/head<span>></span>: The <span><</span>head<span>></span> element. This element acts as a container for all the stuff you want to
                 include on the HTML page that isn't the content you are showing to your page's viewers.
                 This includes things like keywords and a page description that you want to appear in search results,
                 CSS to style our content, character set declarations, and more. You'll learn more about this in the next article in the series.
             </li>
             <li>
-              <meta charset="utf-8">: This element sets the character set your document should use to UTF-8,
+              <span><</span>meta charset="utf-8"<span>></span>: This element sets the character set your document should use to UTF-8,
               which includes most characters from the vast majority of human written languages.
               Essentially it can now handle any textual content you might put on it. There is no reason not
               to set this, and it can help avoid some problems later.
             </li>
             <li>
-              <title></title>: The <span><</span>title> element. This sets the title of your page, which is the title that
+              <span><</span>title<span>></span><span><</span>/title<span>></span>: The <span><</span>title<span>></span> element. This sets the title of your page, which is the title that
                 appears in the browser tab the page is loaded in, and is used to describe the page when you bookmark/favorite it.
             </li>
             <li>
-              <body></body>: The <body> element. This contains all the content that you want to show to web users when
+              <span><</span>body<span>></span><span><</span>/body<span>></span>: The <span><</span>body<span>></span> element. This contains all the content that you want to show to web users when
                 they visit your page, whether that's text, images, videos, games, playable audio tracks, or whatever else.
             </li>
           </ol>
       </section>
-      <section id="Entity_references:_Including_special_characters_in_HTML" class="main-section">
+      <section id="Entity_references" class="main-section">
         <header>
-          Entity references: Including special characters in HTML
+          Entity references
         </header>
         <p>
           In HTML, the characters <, >, ", ' and & are special characters. They are parts of the
@@ -300,7 +336,7 @@
         </p>
         <p>
           We have to use character references — special codes that represent characters, and can
-          be used in these exact circumstances. Each character reference is started with an ampersand (&), and ended by a semicolon (;).
+          be used in these exact circumstances. Each character reference is started with an ampersand (<span>&</span>), and ended by a semicolon (;).
         </p>
         <table>
           <thead>
@@ -336,18 +372,11 @@
           In the below example, you can see two paragraphs, which are talking about web technologies:
         </p>
         <code>
-          <p>In HTML, you define a paragraph using the <p> element.</p>
+          <p><span><</span>p<span>></span>In HTML, you define a paragraph using the <span><</span>p<span>></span> element.<span><</span>/p<span>></span></p>
 
-          <p>In HTML, you define a paragraph using the &lt;p&gt; element.</p>
+          <p><span><</span>p<span>></span>In HTML, you define a paragraph using the &lt;p&gt; element.<span><</span>/p<span>></span></p>
         </code>
       </section>
     </main>
-
-    <nav id="navbar">
-      <header>
-
-      </header>
-      <a class="nav-link" href="#Introduction">Introduction</a>
-    </nav>
   </body>
 </html>
